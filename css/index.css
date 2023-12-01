@@ -1,4 +1,4 @@
-/* -------------talw ko whole section------------- */
+/* -------------talw ko whole section top nav var baher------------- */
 section {
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ section {
 
 
 .login-as {
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 1.2em;
     color: #fff;
     margin-bottom: 10px;
@@ -71,14 +71,165 @@ button:hover {
 .buttons button.active {
     background: #e6e6e6;
     color : #4caf50;
+    outline: 2px solid #4caf50;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 
 }
 
-/* --------------------vitra ko form----------------------- */
+/* --------------------vitra ko form container----------------------- */
+
+.form-value{
+    /* background-color: red; */
+    width: 80%;
+}
 
 .form-container {
     display: none;
     padding: 20px;
+    /* margin-top: 10px; */
+
+}
+
+
+
+/* ----------------Admin and Staff panel login----------------------------- */
+#adminLoginForm {
+    margin: 0 auto;
+    padding: 50px;
+    /* border: 1px solid #ddddddc5; */
+    /* border-radius: 8px; */
+    margin-left: 8%;
+}
+
+.loginHeading {
+    text-align: center;
+    color: #6eff73;
+}
+
+.loginForm {
+    margin-top: 20px;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.inputWrapper {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0px solid #ccc;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    text-indent: 20px;
+}
+input[type="password"] {
+    text-indent: 20px;
+}
+
+.loginButton {
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: 400;
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); */
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    background-color: #45a049;
+}
+
+
+/* ------------------------------Farmer login--------------------------------- */
+
+#farmerSignupForm{
+    margin-left: 1%;
+    margin-top: 1%;
+
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.input-group input {
+    flex: calc(50% - 10px);
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+}
+
+.radio-group {
+    margin-left: 42%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    /* margin-bottom: 15px; */
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px; 
+}
+
+.radio-group label {
+    margin-right: 10px; 
+}
+
+
+#submitBtn {
+    /* left: 200px; */
+    /* width: 100%; */
+    padding: 10px 50px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4caf50; /* Theme color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitBtn:hover {
+    background-color: #45a049;
+}
+
+.label{
+    margin-right: 10%;
+    color: white;
+}
+
+
+#farmerLoginlink{
+    margin-top: 3%;
+    margin-left: 48%;
+
+}
+#farmerLoginlink button {
     margin-top: 10px;
+    font-weight: 400;
+    color:rgb(0, 204, 255);
+    font-size: 1.0rem;
+    background-color: #08080865;
+    padding: 1px 10px;
+    border-radius: 20px;
+}
+
+#or{
+    color: rgba(245, 245, 245, 0.76);
+    /* margin-top: -1%; */
+    margin-left: 70%;
 }
