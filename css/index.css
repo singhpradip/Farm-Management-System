@@ -90,6 +90,20 @@ button:hover {
 
 }
 
+.formBtn {
+    margin-top: 1%;
+    padding: 0 50px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formBtn:hover {
+    background-color: #45a049;
+}
 
 
 /* ----------------Admin and Staff panel login----------------------------- */
@@ -134,17 +148,11 @@ input[type="password"] {
     text-indent: 20px;
 }
 
-.loginButton {
-    margin-top: 20px;
-    background-color: #4caf50;
-    color: white;
-    font-weight: 400;
-    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); */
-    cursor: pointer;
-}
 
-.loginButton:hover {
-    background-color: #45a049;
+
+#adminLoginBtn, #staffLoginBtn, #farmerLoginBtn{
+    margin-left: 67%;
+
 }
 
 
@@ -174,12 +182,13 @@ input[type="password"] {
 }
 
 .radio-group {
+    margin-top: -2%;
+    margin-bottom: 1%;
     margin-left: 42%;
     width: 30%;
     display: flex;
     flex-direction: row;
     align-items:baseline;
-    /* margin-bottom: 15px; */
 }
 
 .radio-group input[type="radio"] {
@@ -191,21 +200,23 @@ input[type="password"] {
 }
 
 
-#submitBtn {
+#farmerRegBtn {
     /* left: 200px; */
     /* width: 100%; */
-    padding: 10px 50px;
+    margin-top: 2%;
+    padding: 0 50px;
     border: none;
     border-radius: 20px;
-    background-color: #4caf50; /* Theme color */
+    background-color: #4caf50;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-#submitBtn:hover {
+#farmerRegBtn:hover {
     background-color: #45a049;
 }
+
 
 .label{
     margin-right: 10%;
@@ -215,21 +226,28 @@ input[type="password"] {
 
 #farmerLoginlink{
     margin-top: 3%;
-    margin-left: 48%;
+    margin-left: 350px;
 
 }
 #farmerLoginlink button {
-    margin-top: 10px;
+    margin-top: 5%;
     font-weight: 400;
-    color:rgb(0, 204, 255);
+    color:#008FFE;
     font-size: 1.0rem;
-    background-color: #08080865;
-    padding: 1px 10px;
-    border-radius: 20px;
+    text-shadow: #fff;
+    background-color: #ffffffe5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.61);
+    /* background-color: #ffffff; */
+    padding: 1px 20px;
+    /* outline: 1px solid #00000063; */
+
+    border-radius: 10px;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
 }
 
 #or{
     color: rgba(245, 245, 245, 0.76);
     /* margin-top: -1%; */
-    margin-left: 70%;
+    margin-left: 50%;
 }

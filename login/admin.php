@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the username and password match
     if ($username === "admin" && $password === "admin") {
         $_SESSION['usersession'] = $username;
-        header("Location: ../sections/adminPanel.php"); // Redirects to admin_users.php after successful login
+        header("Location: ../sections/adminPanel.php");
         exit;
     } else {
         // Display error message

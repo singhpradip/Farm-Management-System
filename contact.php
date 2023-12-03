@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-<?php include "_topnav.php" ?>
+<?php include "sections/_topnav.php" ?>
 
     <div class="container2 contact-form" style="font-family: 'IBM Plex Sans', sans-serif;">
             <form method="post" action="contact.php">

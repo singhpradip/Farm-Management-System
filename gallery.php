@@ -9,12 +9,12 @@
 </head>
 <body>
 
-<?php include "_topnav.php" ?>
+<?php include "sections/_topnav.php" ?>
 
 <div class="container">
     <h2>Gallery</h2>
 
-    <form action="_upload.php" method="post" enctype="multipart/form-data">
+    <form action="sections/_upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
         <button type="submit">Upload Image</button>
     </form>
@@ -42,6 +42,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>
