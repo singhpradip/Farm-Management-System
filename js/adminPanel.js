@@ -46,11 +46,12 @@ function openEditForm(userId) {
     $('#editModal').show();
 
     // Set the userId as a data attribute in the form
-    $('#editForm').attr('data-user-id', userId);
+    $('#editForm').attr('data-user-id', userId); // Fix here
 
     // Populate the form fields with existing user data
     fetchUserData(userId);
 }
+
 
 // Function to fetch user data and populate the form fields
 function fetchUserData(userId) {
@@ -70,6 +71,8 @@ function fetchUserData(userId) {
     });
 }
 
+
+// Function to close modal and clear form
 function closeModal2() {
     // Code to close modal...
     $('#editModal').hide();
@@ -80,34 +83,62 @@ function closeModal2() {
 
 
 $(document).ready(function() {
-    $('#editForm').submit(function(event) {
-        event.preventDefault();
+    // Handle click events for the Edit buttons
+    $('.editBtn').click(function() {
+        var userId = $(this).data('user-id');
+        openEditForm(userId);
+    });
 
+    // Handle click event for Save Changes button
+    $('#saveChangesBtn').click(function() {
+        submitEditForm();
+    });
+
+    // Handle form submission
+    function submitEditForm() {
         // Get userId from the data attribute
-        var userId = $('#editForm').data('data-user-id');
+        var userId = $('#editForm').data('user-id'); 
 
         $.ajax({
             type: 'POST',
             url: '_updateStaff.php',
-            data: $(this).serialize() + '&userId=' + userId,
+            data: $('#editForm').serialize() + '&userId=' + userId,
             dataType: 'json',
             success: function(response) {
                 if (response.status === 'success') {
                     // Display success message
-                    // alert(response.message);
-                    // location.reload();
-                    $('#responseMessage').html('<p style="color: blue; font-weight: bold;">' + response.message + '</p>');
-
+                    // $('#responseMessage').html('<p style="color: blue; font-weight: bold;">' + response.message + '</p>');
+                    alert(response.message);
+                    location.reload();
                 } else {
                     // Display error message
-                    // alert(response.message);
-                    $('#responseMessage').html('<p style="color: blue; font-weight: bold;">' + response.message + '</p>');
+                    // $('#responseMessage').html('<p style="color: red; font-weight: bold;">' + response.message + '</p>');
+                    alert(response.message);
 
                 }
             }
         });
-    });
+    }
 });
+
+
+
+
+// -----------Add image -----------------------------------
+
+
+function openAddImageForm() {
+    // Code to open modal or form...
+    $('#addImageModal').show();
+}
+
+function closeAddImageForm() {
+    // Code to close modal or form...
+    $('#addImageModal').hide();
+    // Clear the form and response message
+    $('#addImageForm')[0].reset();
+}
+
 
 
 

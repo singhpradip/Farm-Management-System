@@ -147,6 +147,9 @@ input[type="text"] {
 input[type="password"] {
     text-indent: 20px;
 }
+input[type="number"] {
+    text-indent: 20px;
+}
 
 
 

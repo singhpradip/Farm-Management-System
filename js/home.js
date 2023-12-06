@@ -15,7 +15,10 @@ function fadeIn(element) {
     }, 50);
 }
 
+
+//show farmer login form --------------------------------------
 function showForm(formId) {
+    
     // Check if the form is already displayed
     if (currentFormId === formId) {
         return;
@@ -49,5 +52,151 @@ function showForm(formId) {
         button.classList.remove('active');
     });
     document.getElementById(formId.replace('Form', 'Btn')).classList.add('active');
+
 }
 
+// --------------------------Prevent default form submission of admin------------------
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("adminLoginBtn").addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var formData = new FormData(document.getElementById("adminLogin"));
+
+        // Send AJAX request
+        fetch("login/_admin.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirect to admin panel or show success message
+                window.location.href = "sections/adminPanel.php";
+            } else {
+                // Display the error message
+                alert(data.message);
+
+                // Clear the password field
+                document.getElementById("adminLogin").reset();
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+});
+
+
+
+// --------------------------Prevent default form submission of Staff ------------------
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("staffLoginBtn").addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var formData = new FormData(document.getElementById("staffLogin"));
+
+        // Send AJAX request
+        fetch("login/_staff.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirect to admin panel or show success message
+                window.location.href = "sections/staffPanel.php";
+            } else {
+                // Display the error message
+                alert(data.message);
+
+                // Clear the password field
+                document.getElementById("staffLogin").reset();
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+});
+
+
+
+
+// --------------------------Prevent default form submission and proceed to send data to php of Farmer SignUP ------------------
+
+
+$(document).ready(function() {
+    $('#farmerForm').submit(function(event) {
+        event.preventDefault();
+
+        // Manually create the formData object and populate it with form fields
+        var formData = new FormData();
+        formData.append('firstName', $('#firstName').val());
+        formData.append('lastName', $('#lastName').val());
+        formData.append('address', $('#address').val());
+        formData.append('contactNo', $('#contactNo').val());
+        formData.append('password', $('#password').val());
+        formData.append('confirmPassword', $('#confirmPassword').val());
+
+        // Get the selected gender value
+        var genderValue = $("input[name='gender']:checked").val();
+        formData.append('gender', genderValue);
+        console.log(formData);
+        $.ajax({
+            type: 'POST',
+            url: 'sections/_addFarmer.php',
+            data: formData,
+            contentType: false, // Required for FormData
+            processData: false, // Required for FormData
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    // Display success message
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    // Display error message
+                    alert(response.message);
+                }
+            }
+        });
+    });
+});
+
+
+
+
+
+// --------------------------Prevent default form submission of Farmer ------------------
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("farmerLoginBtn").addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var formData = new FormData(document.getElementById("farmerLogin"));
+
+        // Send AJAX request
+        fetch("login/_farmer.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirect to admin panel or show success message
+                window.location.href = "sections/farmerPanel.php";
+            } else {
+                // Display the error message
+                alert(data.message);
+
+                // Clear the password field
+                document.getElementById("farmerLogin").reset();
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+});

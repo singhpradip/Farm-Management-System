@@ -11,6 +11,35 @@
     background-color: #c9b930;
 }
 
+#addUserBtn, #addImageBtn {
+    padding: 20px;
+    border: #1a1a1a;
+    border-radius: 30px;
+    margin-top: 1%;
+    background-color: #008000;
+    color: #ffffff;
+  }
+
+  #addUserBtn:hover,
+  #addImageBtn:hover {
+    background-color: #01be01;
+    color: #ffffff;
+  }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.left-button {
+    float: left;
+    margin-left: 2%;
+}
+
+.right-button {
+    float: right;
+    margin-right: 2%;
+}
 
 /* Signup form -------------------------- */
 
@@ -29,6 +58,7 @@
 
 .modal-content {
     background-color: #fefefe;
+    top: 20%;
     padding: 20px;
     border-radius: 10px;
     width: 400px;

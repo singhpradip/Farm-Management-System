@@ -26,15 +26,43 @@
             <h1>Admin Zone</h1>
             <nav>
                 <ul>
-                    <li><a href="../login/logout.php" id="logoutLink">Logout</a></li>
+                    <li><a href="../login/_logout.php" id="logoutLink">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- add new Staff button -->
-    <button type="button" id="addUserBtn" onclick="openSignUpForm()">Add New Staff</button>
+    <button type="button" id="addImageBtn" class="left-button" onclick="openAddImageForm()">Add Image to Gallery</button>
+    <!-- form  for adding images -->
+    <div id="addImageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddImageForm()">&times;</span>
+            <h2>Add Image to Gallery</h2>
 
+            <form action="_uploadImage.php" method="post" enctype="multipart/form-data">
+
+                <div class="formGroup">
+                    <div class="inputWrapper">
+                        <input type="file" name="image" accept="image/*" required/>
+                    </div>
+                </div>
+
+                <div class="formGroup">
+                    <div class="inputWrapper">
+                        <button type="submit" id="addImageSubmitBtn" class="formBtn" name="submit">Add Image</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    
+    
+    
+    <!-- add new Staff button -->
+    <button type="button" id="addUserBtn" class="right-button" onclick="openSignUpForm()">Add New Staff</button>
+    <!-- form  for adding new Staff -->
     <div id="signupModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal1()">&times;</span>
@@ -67,7 +95,7 @@
         </div>
     </div>
 
-
+    
     <!-- Edit form-button inside table  -->
     <div id="editModal" class="modal">
         <div class="modal-content">
@@ -96,7 +124,9 @@
                 <div class="formGroup">
                     <div class="inputWrapper">
                         <!-- <button type="submit" id="editBtn" class="formBtn" name="submit">Save Changes</button> -->
-                        <button type="button" id="editBtn" class="formBtn" onclick="submitEditForm('<?php echo $key; ?>')">Save Changes</button>
+                        <!-- <button type="button" id="editBtn" class="formBtn" onclick="submitEditForm('<?php echo $key; ?>')">Save Changes</button> -->
+
+                        <button type="button" class="formBtn" id="saveChangesBtn">Save Changes</button>
 
                     </div>
                 </div>
@@ -142,7 +172,8 @@
                                     <td>' . $name . '</td>
                                     <td>' . $password . '</td>
                                     <td>
-                                        <button type="button" id="updateBtn" onclick="openEditForm(' . $key . ')">Edit</button>
+
+                                        <button type="button" class="editBtn" data-user-id="' . $key . '">Edit</button>
 
                                         <a href="_deleteuser.php?deleteid=' . $key . '"><button type="button" id="deleteBtn">Delete</button></a>
                                     </td>
@@ -159,12 +190,16 @@
         </section>
     </main>
 
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+    <!-- offline setup--------- -->
+    <script src="../vendor/jquery-3.6.4.min.js"></script>
+
+
     <script src="../js/adminPanel.js"></script>
     <script src="../js/global.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
 </body>
 
 

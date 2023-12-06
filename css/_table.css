@@ -46,17 +46,8 @@ a button {
   cursor: pointer;
 }
 
-#addUserBtn {
-  padding: 20px;
-  border: #1a1a1a;
-  border-radius: 30px;
-  margin-top: 1%;
-  margin-left: 85%;
-  background-color: #008000;
-  color: #ffffff;
-}
 
-#updateBtn {
+.editBtn {
   background-color: #0000ff;
   color: #ffffff;
 }
@@ -67,5 +58,5 @@ a button {
 }
 
 #heading{
-  margin-top: -4%;
+  margin-top: 3%;
 }

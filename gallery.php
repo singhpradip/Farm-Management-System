@@ -11,36 +11,31 @@
 
 <?php include "sections/_topnav.php" ?>
 
-<div class="container">
-    <h2>Gallery</h2>
+<h2 id="gallerytext">Gallery</h2>
 
-    <form action="sections/_upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*">
-        <button type="submit">Upload Image</button>
-    </form>
-
+<div class="Imgcontainer">
     <div class="gallery-container">
         <?php
-        include "_connect.php";
+        $uploadFolder = 'uploads';
+        $uploadPath = __DIR__ . '/' . $uploadFolder;
 
-        // Fetch and display images
-        $sql = "SELECT ID, ImageName, ImagePath FROM Gallery";
-        $result = $conn->query($sql);
+        $files = glob($uploadPath . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($files) {
+            foreach ($files as $file) {
+                $filename = basename($file);
                 echo '<div class="gallery-item">';
-                echo '<img src="' . $row['ImagePath'] . '" alt="' . $row['ImageName'] . '">';
+                echo '<img src="' . $uploadFolder . '/' . $filename . '" alt="' . $filename . '">';
                 echo '</div>';
             }
         } else {
             echo "No images found.";
         }
-
-        $conn->close();
         ?>
     </div>
 </div>
+
+
 
 <script src="js/home.js"></script>
 </body>
