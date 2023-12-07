@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/_table.css">
     <link rel="stylesheet" href="../css/staffPanel.css">
+    <link rel="stylesheet" href="../css/_topnavStaff.css">
+
     
 
     <title>Farm Management System</title>

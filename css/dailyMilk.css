@@ -1,0 +1,89 @@
+:root {
+    --green: #156317;
+    --blue: #0056b3;
+    --white: #fff;
+    --gray: #f4f4f4;
+    --gray2: #eeecec;
+    --black1: #222;
+    --black2: #999;
+}
+
+.milkFormContainer {
+    margin-top: 10px;
+    background-color: var(--gray);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.205);
+}
+
+.milkFormContainer h1 {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 24px;
+}
+
+form {
+    padding: 5px 20px;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .milkFormContainer {
+        padding: 10px; 
+    }
+    
+    h1 {
+        font-size: 20px; 
+    }
+}
+
+th,
+label {
+    color: #222;
+}
+
+#dailyMilkTable {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin-bottom: 20px; */
+}
+
+#dailyMilkTable th,
+#dailyMilkTable td {
+    padding: 10px;
+    border: 1px solid var(--black2);
+}
+
+#dailyMilkTable th {
+    background-color: var(--gray) !important; /* Use !important to ensure specificity */
+}
+
+#dailyMilkTable input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--black2);
+    border-radius: 5px;
+    background-color: var(--gray);
+}
+
+#dailyMilkTable button {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Center the button */
+    display: block; /* Ensure it takes full width */
+}
+
+#dailyMilkTable button:hover {
+    background-color: var(--green);
+    color: var(--white);
+}

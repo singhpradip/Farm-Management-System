@@ -24,21 +24,21 @@ updateCurrentDateTime();
 setInterval(updateCurrentDateTime, 1000);
 
 
-// ======================================================================================
+// ==================================to show selected menu page====================================================
 function openSection(section) {
     // Handle opening different sections based on the clicked item
     switch (section) {
         case 'dailyRec':
-            // Code to open the daily record section
-            console.log('See Daily Rec section opened');
+            // console.log('See Daily Rec section opened');
+            window.location.href='dailyMilk.php';
             break;
         case 'farmerMgmt':
-            // Code to open the farmer management section
-            console.log('Farmer Management section opened');
+            // console.log('Farmer Management section opened');
+            window.location.href='farmerMgmt.php';
             break;
         case 'payment':
-            // Code to open the payment section
-            console.log('Payment section opened');
+            // console.log('Payment section opened');
+            window.location.href='payment.php';
             break;
         default:
             console.log('Invalid section');

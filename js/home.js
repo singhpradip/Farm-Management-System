@@ -143,7 +143,7 @@ $(document).ready(function() {
         // Get the selected gender value
         var genderValue = $("input[name='gender']:checked").val();
         formData.append('gender', genderValue);
-        console.log(formData);
+        // console.log(formData);
         $.ajax({
             type: 'POST',
             url: 'sections/_addFarmer.php',

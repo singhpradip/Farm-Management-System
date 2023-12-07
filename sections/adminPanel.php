@@ -175,7 +175,7 @@
 
                                         <button type="button" class="editBtn" data-user-id="' . $key . '">Edit</button>
 
-                                        <a href="_deleteuser.php?deleteid=' . $key . '"><button type="button" id="deleteBtn">Delete</button></a>
+                                        <a href="_deleteuser.php?deleteid=' . $key . '"><button type="button" class="deleteBtn">Delete</button></a>
                                     </td>
                                 </tr>';
                             }
