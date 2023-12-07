@@ -123,11 +123,7 @@
 
                 <div class="formGroup">
                     <div class="inputWrapper">
-                        <!-- <button type="submit" id="editBtn" class="formBtn" name="submit">Save Changes</button> -->
-                        <!-- <button type="button" id="editBtn" class="formBtn" onclick="submitEditForm('<?php echo $key; ?>')">Save Changes</button> -->
-
                         <button type="button" class="formBtn" id="saveChangesBtn">Save Changes</button>
-
                     </div>
                 </div>
             </form>

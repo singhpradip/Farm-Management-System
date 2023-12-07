@@ -1,3 +1,5 @@
+
+/* -------------admin panel styling------------------- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -29,7 +31,7 @@ th, td {
 }
 
 tbody {
-  max-height: 200px; /* Set the maximum height you prefer */
+  max-height: 200px;
   overflow-y: auto;
 }
 
@@ -85,62 +87,6 @@ a button {
 
 
 /* ---------------------css for Record tables------------------ */
-/* 
-:root {
-  --primary-color: #156317;
-  --secondary-color: #f4f4f4;
-  --table-border: #000000;
-}
-
-.todaysRec {
-  height: 95vh;
-  background-color: var(--secondary-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.397);
-  padding: 20px;
-}
-
-.recHeader {
-  text-align: center;
-}
-
-.recHeader h1 {
-  color: var(--primary-color);
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-#recTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-#recTable th,
-#recTable td {
-  padding: 10px;
-  border: 1px solid var(--table-border);
-  text-align: center;
-}
-
-#recTable th {
-  background-color: var(--primary-color);
-  color: #fff;
-}
-
-#recTable tbody tr:nth-child(even) {
-  background-color: var(--secondary-color);
-}
-
-#recTable tbody tr:hover {
-  background-color: #f0f0f0;
-}
-
-.tableContainer {
-  overflow-x: auto;
-  overflow-y: auto;
-  max-height: 400px;
-} */
-
 
 
 :root {
@@ -176,7 +122,7 @@ a button {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  table-layout: fixed; /* Ensure equal width columns */
+  /* table-layout: fixed; Ensure equal width columns */
 }
 
 #recTable th,
@@ -203,3 +149,4 @@ a button {
 #recTable tbody tr:hover {
   background-color: #f0f0f0;
 }
+

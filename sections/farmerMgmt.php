@@ -62,23 +62,23 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal2()">&times;</span>
 
-                <h3 class="loginHeading">Register new Farmer !</h3>
-                    <form id="farmerForm" method="post">
+                <h3 class="loginHeading">Update Farmer Information !</h3>
+                    <form id="farmerEditForm" method="post">
                         <div class="input-group">
-                            <input type="text" placeholder="First Name *" name="firstName" id="firstName" onkeydown="return alphaOnly(event);" required>
-                            <input type="text" placeholder="Last Name" name="lastName" id="lastName" onkeydown="return alphaOnly(event);" required>
+                            <input type="text" placeholder="First Name *" name="firstName" id="firstName1" onkeydown="return alphaOnly(event);" required>
+                            <input type="text" placeholder="Last Name" name="lastName" id="lastName1" onkeydown="return alphaOnly(event);" required>
                         </div>
                         <div class="input-group">
-                            <input type="text" placeholder="Address *" name="address" id="address" required>
-                            <input type="text" placeholder="Contact No *" name="contactNo" id="contactNo" onkeydown="numOnly(event);" required>
+                            <input type="text" placeholder="Address *" name="address" id="address1" required>
+                            <input type="text" placeholder="Contact No *" name="contactNo" id="contactNo1" onkeydown="numOnly(event);" required>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Password *" name="password" id="password" required>
-                            <input type="password" placeholder="Confirm Password *" name="confirmPassword" id="confirmPassword" required>
+                            <input type="password" placeholder="Set New Password *" name="password" id="password1" required>
+                            <input type="password" placeholder="Confirm New Password *" name="confirmPassword" id="confirmPassword1" required>
                         </div>
                         <div class="radio-group">
-                            <input type="radio" name="gender" value="male" id="male" required> <span class="label">Male</span>
-                            <input type="radio" name="gender" value="female" id="female" required> <span class="label">Female</span>
+                            <input type="radio" name="gender" value="male" id="male1" required> <span class="label">Male</span>
+                            <input type="radio" name="gender" value="female" id="female1" required> <span class="label">Female</span>
                             <!-- <button type="submit" id="farmerRegBtn" class="formBtn" name="farmerReg">Register</button> -->
                         <button type="button" class="formBtn" id="saveChangesBtn">Save Changes</button>
 
@@ -89,14 +89,14 @@
     </div>
 
 
-    <main>
-        <section id="heading">
-            <h1>Registered Farmers:</h1>
+    <main class="todaysRec">
+        <section class="recHeader">
+            <h1>Registered Farmers</h1>
         </section>
-        
-        <section>
-            <table>
-                <thead>
+        <section class="recBody">
+            <div class="tableContainer">
+                <table id="recTable">
+                    <thead>
                     <tr>
                         <th scope="col">Farmer Id</th>
                         <th scope="col">Name</th>
@@ -128,7 +128,7 @@
                                     <td>{$row['gender']}</td>
                                     <td>
                                         <button type='button' class='editBtn' data-user-id='{$row['id']}'>Edit</button>
-                                        <a href='_deleteuser.php?deleteid={$row['id']}'><button type='button' class='deleteBtn'>Delete</button></a>
+                                        <a href='_deleteFarmer.php?deleteid={$row['id']}'><button type='button' class='deleteBtn'>Delete</button></a>
                                     </td>
                                 </tr>";
                         }
@@ -141,10 +141,10 @@
                 ?>
 
                 </tbody>
-            </table>
-
+                </table>
+            </div>
         </section>
-    </main>
+</main>
 
 
 

@@ -52,37 +52,52 @@ $(document).ready(function() {
 
 
 // Update form - button-----------------------------------------------------------------
-
-function openEditForm(userId) {
+// Function to open the edit form
+function openEditForm(farmerId) {
     // Code to open modal...
     $('#editModal').show();
 
-    // Set the userId as a data attribute in the form
-    $('#editForm').attr('data-user-id', userId); // Fix here
+    // Set the farmerId as a data attribute in the form
+    $('#farmerEditForm').attr('data-farmer-id', farmerId);
 
-    // Populate the form fields with existing user data
-    fetchUserData(userId);
+    // Populate the form fields with existing farmer data
+    fetchFarmerData(farmerId);
 }
 
-
-// Function to fetch user data and populate the form fields
-function fetchUserData(userId) {
+// Function to fetch farmer data and populate the form fields
+function fetchFarmerData(farmerId) {
     $.ajax({
         type: 'GET',
-        url: '_getStaffInfo.php', 
-        data: { userId: userId },
+        url: '_getFarmerInfo.php',
+        data: { farmerId: farmerId },
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             if (response.status === 'success') {
-                // Populate the form fields with user data
-                $('#editForm input[name="username"]').val(response.data.username);
+                // Populate the form fields with farmer data
+                var farmerData = response.data;
+
+                $('#farmerEditForm input[name="firstName"]').val(farmerData.first_name);
+                $('#farmerEditForm input[name="lastName"]').val(farmerData.last_name);
+                $('#farmerEditForm input[name="address"]').val(farmerData.address);
+                $('#farmerEditForm input[name="contactNo"]').val(farmerData.contact_no);
+                $('#farmerEditForm input[name="password"]').val(''); // Clear password field for security
+                $('#farmerEditForm input[name="confirmPassword"]').val(''); // Clear confirm password field
+                // Select the gender radio button based on the fetched data
+                $('#farmerEditForm input[name="gender"]').prop('checked', false); // Clear previous selection
+                if (farmerData.gender === 'male') {
+                    $('#farmerEditForm input[name="gender"][value="male"]').prop('checked', true);
+                } else if (farmerData.gender === 'female') {
+                    $('#farmerEditForm input[name="gender"][value="female"]').prop('checked', true);
+                }
             } else {
                 console.error(response.message);
             }
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching farmer data:', error);
         }
     });
 }
-
 
 // Function to close modal and clear form
 function closeModal2() {
@@ -93,45 +108,46 @@ function closeModal2() {
     $('#responseMessage').empty();
 }
 
-
-$(document).ready(function() {
-    // Handle click events for the Edit buttons
-    $('.editBtn').click(function() {
-        var userId = $(this).data('user-id');
-        openEditForm(userId);
+//submiting update form-------------------------------------------
+$(document).ready(function () {
+    // Handle click events for the Edit buttons to open edit form
+    $('.editBtn').click(function () {
+        var farmerId = $(this).data('user-id');
+        openEditForm(farmerId);
     });
 
     // Handle click event for Save Changes button
-    $('#saveChangesBtn').click(function() {
+    $('#saveChangesBtn').click(function () {
         submitEditForm();
     });
 
     // Handle form submission
     function submitEditForm() {
-        // Get userId from the data attribute
-        var userId = $('#editForm').data('user-id'); 
+        // Get farmerId from the data attribute
+        var farmerId = $('#farmerEditForm').data('farmer-id');
 
         $.ajax({
             type: 'POST',
-            url: '_updateStaff.php',
-            data: $('#editForm').serialize() + '&userId=' + userId,
+            url: '_updateFarmer.php',
+            data: $('#farmerEditForm').serialize() + '&farmerId=' + farmerId,
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 if (response.status === 'success') {
                     // Display success message
-                    // $('#responseMessage').html('<p style="color: blue; font-weight: bold;">' + response.message + '</p>');
                     alert(response.message);
                     location.reload();
                 } else {
                     // Display error message
-                    // $('#responseMessage').html('<p style="color: red; font-weight: bold;">' + response.message + '</p>');
                     alert(response.message);
-
                 }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error updating farmer data:', error);
             }
         });
     }
 });
+
 
 
 
