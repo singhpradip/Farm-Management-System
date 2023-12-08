@@ -84,13 +84,15 @@
 
                     // Fetch data from the correct tables and calculate total quantity and amount
                     $sql = "SELECT 
-                                farmer_id,
-                                farmer_name,
-                                contact_no,
-                                total_qty,
-                                total_amount,
-                                due_amount
-                            FROM view_totalMilk";
+                            farmer_id,
+                            farmer_name,
+                            contact_no,
+                            total_qty,
+                            total_amount,
+                            due_amount
+                        FROM view_totalMilk
+                        HAVING due_amount > 0";
+        
 
 
                     $result = mysqli_query($conn, $sql);

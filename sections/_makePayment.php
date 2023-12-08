@@ -58,4 +58,3 @@ if (isset($_POST['farmerId'], $_POST['deuAmount'], $_POST['paidAmount'])) {
 // Return the JSON response
 header('Content-Type: application/json');
 echo json_encode($response);
-?>

@@ -1,0 +1,31 @@
+        /* Style for the fieldset (boundary) */
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 800px;
+            margin: auto;
+        }
+
+        /* Style for the legend (boundary title) */
+        legend {
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        /* Style for individual information rows */
+        .infoRow {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* Style for labels */
+        .label {
+            font-weight: bold;
+        }
+
+        /* Style for user details */
+        .detail {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
