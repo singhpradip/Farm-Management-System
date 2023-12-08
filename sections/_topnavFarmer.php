@@ -8,12 +8,6 @@
             </div> 
             <nav>
                 <ul>
-                    <li>
-                        <div class="homebutton">
-                            <img src="../img/home-outline.svg" alt="">    
-                            <a href="staffPanel.php" id="homeLink">Home</a>
-                        </div>
-                    </li>
                     <li><a href="../login/_logout.php" id="logoutLink">Logout</a></li>
                 </ul>
             </nav>
