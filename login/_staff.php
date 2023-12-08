@@ -16,7 +16,7 @@
             if (!empty($data)) {
         
                 // Store the user_id in the session
-                $_SESSION['usersession'] = $username;
+                $_SESSION['staffSession'] = $username;
                 echo json_encode(['success' => true, 'message' => 'Redirecting to staff panel...']);
                 exit;
             } else {

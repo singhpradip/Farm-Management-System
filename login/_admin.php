@@ -10,7 +10,7 @@
 
         // Check if the username and password match
         if ($username === "admin" && $password === "admin") {
-            $_SESSION['usersession'] = $username;
+            $_SESSION['adminSession'] = $username;
             echo json_encode(['success' => true, 'message' => 'Redirecting to admin panel...']);
             exit;
         } else {

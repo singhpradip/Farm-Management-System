@@ -37,7 +37,7 @@
         }
 
 
-    // ----------------------------------------------------------------------------
+    // -------------------------------Paid amount---------------------------------------------
 
     // Function to open payment form with farmer ID and total amount
     function openPaymentForm(farmerId, totalAmount) {
@@ -46,7 +46,7 @@
         $('#farmerEditForm input[name="deuAmount"]').val(totalAmount);
     }
 
-    // Event listener for "PAY" button click
+    // Event listener for "PAY" button click in form
     $('.payBtn').on('click', function () {
         var farmerId = $(this).data('user-id');
         var totalAmount = $(this).data('total-amount');
@@ -63,37 +63,39 @@
     }
 
 
+    
     // Function to handle "Make Payment" button click
+    $(document).ready(function () {
+        // Event listener for "Make Payment" button click
+        $('#makePayment').on('click', function () {
+            // Get values from the form
+            var farmerId = $('#farmerId').val();
+            var paidAmount = $('#paid').val();
 
-    document.getElementById('makePayment').addEventListener('click', function () {
-        // Get values from the form
-        var farmerId = $('#farmerEditForm input[name="farmerId"]').val();
-        var deuAmount = $('#farmerEditForm input[name="deuAmount"]').val();
-        var paidAmount = $('#farmerEditForm input[name="paid"]').val();
-
-        // Make an AJAX request to your PHP script
-        $.ajax({
-            type: 'POST',
-            url: '_makePayment.php',
-            data: {
+            // Create a JSON object with the data
+            var paymentData = {
                 farmerId: farmerId,
-                deuAmount: deuAmount,
                 paidAmount: paidAmount
-            },
-            dataType: 'json',
-            success: function (response) {
-                if (response.status === 'success') {
-                    alert('Payment successful!');
-                    location.reload();
-                } else {
-                    alert('Payment failed. ' + response.message);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('AJAX Error:', xhr.responseText);
+            };
 
-                // Show an error alert with more details
-                alert('An error occurred while making the payment. Please check the console for details.');
-            }
+            // Make an AJAX request to insert data into the payments table
+            $.ajax({
+                type: 'POST',
+                url: '_makePayment.php', // Adjust the URL to your server-side script
+                data: paymentData,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        alert('Payment successful!');
+                        location.reload(); // Reload the page after successful payment
+                    } else {
+                        alert('Payment failed. ' + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('AJAX Error:', xhr.responseText);
+                    alert('An error occurred while making the payment. Please check the console for details.');
+                }
+            });
         });
     });

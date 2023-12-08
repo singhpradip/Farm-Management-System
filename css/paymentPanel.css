@@ -62,3 +62,9 @@ button.formBtn:hover {
         max-width: 90%;
     }
 }
+
+
+
+.center-text {
+    text-align: center;
+}

@@ -16,7 +16,7 @@
             if (!empty($data)) {
         
                 // Store the user_id in the session
-                $_SESSION['usersession'] = $phoneNo;
+                $_SESSION['farmerSession'] = $phoneNo;
                 echo json_encode(['success' => true, 'message' => 'Redirecting to farmer panel...']);
                 exit;
             } else {

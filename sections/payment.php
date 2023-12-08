@@ -24,14 +24,14 @@
     <title>Farm Management System</title>
 </head>
 <body>
-<?php include '_topnavStaff.php' ?>
+    <?php include '_topnavStaff.php' ?>
 
 
-<form id="rateForm">
-    <label for="currentRate">Current Rate:</label>
-    <input type="text" id="currentRate" class="rateInput">
-    <button type="button" id="updateButton" onclick="updateRate()">Update</button>
-</form>
+    <form id="rateForm">
+        <label for="currentRate">Current Rate:</label>
+        <input type="text" id="currentRate" class="rateInput">
+        <button type="button" id="updateButton" onclick="updateRate()">Update</button>
+    </form>
 
 
 
@@ -39,24 +39,22 @@
  
     <!-- Edit form-button inside table  -->
     <div id="editModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal2()">&times;</span>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal2()">&times;</span>
 
-        <h3 class="loginHeading">Payment Information !</h3>
-        <form id="farmerEditForm" method="post">
-            <!-- Add the hidden input for farmerId -->
-            <input type="hidden" name="farmerId" id="farmerId" value="YOUR_FARMER_ID">
-
-            <div class="input-group">
-                <label for="deuAmount">Deu Amount:</label>
-                <input type="text" name="deuAmount" id="deuAmount" readonly required><br>
-                <label for="paid">Paying ?</label>
-                <input type="text" name="paid" id="paid" required>
-            </div>
-            <button type="button" class="formBtn" id="makePayment">Make Payment</button>
-        </form>
+            <h3 class="loginHeading">Payment Information !</h3>
+            <form id="farmerEditForm" method="post">
+                <div class="center-text">
+                    <input type="hidden" name="farmerId" id="farmerId" value="YOUR_FARMER_ID">
+                    <label for="deuAmount">Deu Amount:</label>
+                    <input type="text" name="deuAmount" id="deuAmount" style="color: red; font-weight: bold; text-align: center; font-size: 1rem; "; readonly required><br>
+                    <label for="paid">Paying ?</label>
+                    <input type="text" name="paid" id="paid" style=" font-weight: bold; text-align: center; font-size: 1rem; " required>
+                    <button type="button" class="formBtn" id="makePayment">Make Payment</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
 
 
@@ -74,6 +72,7 @@
                         <th scope="col">Contact No.</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Total Amount</th>
+                        <th scope="col">Deu Amount</th>
                         <th scope="col">Operation:</th>
                     </tr>
                 </thead>
@@ -104,6 +103,7 @@
                                     <td>{$row['farmer_name']}</td>
                                     <td>{$row['contact_no']}</td>
                                     <td>{$row['total_qty']}</td>
+                                    <td>{$row['total_amount']}</td>
                                     <td>{$row['due_amount']}</td>
                                     <td>
                                     <button type='button' class='editBtn payBtn' data-user-id='{$row['farmer_id']}' 

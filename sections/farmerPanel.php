@@ -1,7 +1,7 @@
 <?php
     //session start and keep loggedin or redirect to login page.
     session_start();
-    $userprofile=$_SESSION['usersession'];
+    $userprofile=$_SESSION['farmerSession'];
     if($userprofile==false){
         header('location:../index.php');
     }
